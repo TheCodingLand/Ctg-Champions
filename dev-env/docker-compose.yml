@@ -1,0 +1,104 @@
+version: "3"
+services:
+  traefik:
+    image: traefik:v2.0.0-alpha3-alpine
+    command:
+      - "--api"
+      - "--log.loglevel=INFO"
+      - "--entryPoints=Name:http Address::80"
+      - "--entryPoints=Name:https Address::443"
+      - "--acme"
+      - "--acme.storage=/etc/traefik/acme/acme.json"
+      - "--acme.entryPoint=https"
+      - "--acme.httpChallenge.entryPoint=http"
+      - "--acme.onHostRule=true"
+      - "--acme.email=julien.lebourg@ctg.lu"
+      - "--providers.docker"
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - n_acme_traefik:/etc/traefik/acme
+      - n_logs_traefik:/etc/traefik/logs
+    networks:
+      - proxy
+
+    ports:
+      - 80:80
+      - 443:443
+    #deploy:
+    #  placement:
+    #    constraints:
+    #      - node.role == manager
+    #  update_config:
+    #    parallelism: 1
+    #    delay: 10s
+    #  restart_policy:
+    #    condition: on-failure
+    labels:
+      - "traefik.http.routers.traefik1_router_http.rule=Host(`traefik.${DOMAIN}`)"
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik1_router_http.middlewares=https_redirect"
+      - "traefik.http.routers.traefik1_router_https.rule=Host(`traefik.${DOMAIN}`)"
+      - "traefik.http.services.traefik1_service.loadbalancer.server.port=8080"
+      - "traefik.http.routers.traefik1_router_https.tls"
+      - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
+
+  dind:
+    image: docker:dind
+    networks:
+      - proxy
+    privileged: true
+
+
+  code:
+    build: ./coder-docker
+    command:
+      - "--allow-http"
+
+
+    environment:
+      - DOCKER_HOST=dind:2375
+    volumes:
+
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data:/home/coder/project
+    networks:
+      - proxy
+
+    labels:
+      - "traefik.http.routers.code1_router_http.rule=Host(`code.${DOMAIN}`)"
+      - "traefik.enable=true"
+      - "traefik.http.routers.code1_router_http.middlewares=https_redirect"
+      - "traefik.http.routers.code1_router_https.rule=Host(`code.${DOMAIN}`)"
+      - "traefik.http.services.code1_service.loadbalancer.server.port=8443"
+      - "traefik.http.routers.code1_router_https.tls"
+      - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
+
+
+  research:
+    build: ./research
+    labels:
+      - "traefik.http.routers.research_router_http.rule=Host(`research.${DOMAIN}`)"
+      - "traefik.enable=true"
+      - "traefik.http.routers.research1_router_http.middlewares=https_redirect"
+      - "traefik.http.routers.research1_router_https.rule=Host(`research.${DOMAIN}`)"
+      - "traefik.http.services.research1_service.loadbalancer.server.port=8888"
+      - "traefik.http.routers.research1_router_https.tls"
+      - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
+    networks:
+      - proxy
+    volumes:
+      - n_research:/home/jovyan/work
+
+
+
+networks:
+  proxy:
+
+
+volumes:
+  n_acme_traefik:
+  n_logs_traefik:
+  n_research:
+
+

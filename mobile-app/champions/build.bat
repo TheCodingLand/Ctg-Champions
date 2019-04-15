@@ -1,0 +1,1 @@
+docker run -v .:. kattwinkel/flutter-android flutter build apk
