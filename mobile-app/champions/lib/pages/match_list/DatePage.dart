@@ -80,11 +80,12 @@ class DaysViewState extends State<DaysPage> {
     var todayPosition = calendarro.getPositionOfDate(today);
     //print("todayPosition" + todayPosition.toString());
     pageView = new PageView.builder(
-
+        
         itemBuilder: (context, position) => buildDayView(position),
         itemCount: lastPosition + 1,
         controller: new PageController(initialPage: todayPosition),
-        
+        pageSnapping: true,
+        physics: BouncingScrollPhysics(),
         onPageChanged: (position) {
           //print(todayPosition);
           DateTime selectedDate = getDateFromPosition(position);
@@ -92,10 +93,14 @@ class DaysViewState extends State<DaysPage> {
           calendarroStateKey.currentState.setSelectedDate(selectedDate);
           calendarroStateKey.currentState.setCurrentDate(selectedDate);
         });
+    double height = MediaQuery.of(context).size.height;
+    return Column(mainAxisSize: MainAxisSize.min,
+    children: <Widget>[
+      
+     Container(child: calendarro),
+     
 
-    return new Column(children: <Widget>[
-      new Container(child: calendarro),
-      new Container(height:500,child: pageView)
+     Container( height: height -146,child: pageView)
     ]);
   }
 

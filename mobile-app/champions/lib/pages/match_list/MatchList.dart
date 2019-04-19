@@ -24,7 +24,9 @@ class MatchList extends StatelessWidget {
       i.date.year == date.year).toList();
     //print(matchesFiltered.toString());
     //final List<Encounter> matches = State.of(MyInheritedMatchListWidget.of(context));
-    return Expanded ( child: 
+    return Expanded ( 
+      child: 
+    
       //onSwipeLeft: () =>setDate(date.subtract(Duration(days: 1))),
      // onSwipeRight: () =>setDate(date.add(Duration(days: 1))),
       Container(
@@ -34,7 +36,7 @@ class MatchList extends StatelessWidget {
         child: ListView.builder(
           padding: EdgeInsets.all(0),
           itemExtent: 150.0,
-          itemCount: matchesFiltered.length,
+          itemCount: 999,
           //shrinkWrap: true,
           itemBuilder: (_, index) => EncounterRow(matchesFiltered[index], userstate.user),
         ),

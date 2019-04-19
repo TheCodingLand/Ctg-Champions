@@ -23,17 +23,19 @@ class MatchList extends StatelessWidget {
       && i.date.month == date.month && 
       i.date.year == date.year).toList();
     print(matchesFiltered.toString());
+
     //final List<Encounter> matches = State.of(MyInheritedMatchListWidget.of(context));
-    return 
-    
+    return Row(children: <Widget>[
+          Expanded(child:
           ListView.builder(
+          scrollDirection: Axis.vertical,
           padding: EdgeInsets.all(0),
           itemExtent: 150.0,
           itemCount: matchesFiltered.length,
-          shrinkWrap: true,
+          //shrinkWrap: true,
           itemBuilder: (_, index) => EncounterRow(matchesFiltered[index], userstate.user),
         
     
-    );
+    ),)]);
     }
 }
