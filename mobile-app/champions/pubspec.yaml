@@ -62,6 +62,7 @@ flutter:
     - assets/flags/
     - assets/logo/
     - assets/animations/
+    - assets/stadiums/
     
   fonts:
     - family: CuteFont

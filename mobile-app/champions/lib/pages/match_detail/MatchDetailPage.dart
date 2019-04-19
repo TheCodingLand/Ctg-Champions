@@ -3,7 +3,7 @@ import 'package:champions/models/index.dart';
 import 'package:champions/models/matches.dart';
 import 'package:champions/inheritedUserWidget.dart';
 //import 'DetailAppBar.dart';
-import 'MatchDetails.dart';
+import 'EncounterDetails.dart';
 
 class MatchDetailPage extends StatelessWidget {
 
@@ -22,6 +22,7 @@ class MatchDetailPage extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           EncounterDetailBody(match, userstate.user),
+
           //DetailAppBar(),
         ],
       ),

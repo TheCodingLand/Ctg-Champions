@@ -4,6 +4,7 @@ import 'package:champions/ThemeBis.dart' as Theme;
 import 'package:champions/inheritedUserWidget.dart';
 import 'package:champions/inheritedMatchList.dart';
 import 'package:swipedetector/swipedetector.dart';
+import 'package:champions/ThemeBis.dart' as ThemeBis;
 class MatchList extends StatelessWidget {
   final DateTime date;
   final Function setDate;
@@ -25,8 +26,15 @@ class MatchList extends StatelessWidget {
     print(matchesFiltered.toString());
 
     //final List<Encounter> matches = State.of(MyInheritedMatchListWidget.of(context));
-    return Row(children: <Widget>[
+    return 
+          
+          Row(children: <Widget>[
+          
           Expanded(child:
+
+          Container(
+            color: Colors.black45,
+            child: matchesFiltered.length < 1 ? Center(child:Text("No Matches", style: ThemeBis.TextStyles.appBarTitle,)) :
           ListView.builder(
           scrollDirection: Axis.vertical,
           padding: EdgeInsets.all(0),
@@ -36,6 +44,6 @@ class MatchList extends StatelessWidget {
           itemBuilder: (_, index) => EncounterRow(matchesFiltered[index], userstate.user),
         
     
-    ),)]);
+    ),))]);
     }
 }

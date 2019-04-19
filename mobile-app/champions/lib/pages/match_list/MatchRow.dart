@@ -24,9 +24,12 @@ class EncounterRow extends StatelessWidget {
     bool homeSelected = false;
     bool awaySelected = false;
     bool drawSelected = false;
+    bool homeWin=false;
+    bool awayWin=false;
     Team winner;
     if (match.scoreHome> match.scoreAway) {
       winner = match.teamHome;
+      homeWin=true;
     }
     else  
     {
@@ -34,6 +37,7 @@ class EncounterRow extends StatelessWidget {
 
       
       winner = match.teamAway;
+      awayWin=true;
       }
       else { winner = match.draw; }
 
@@ -91,8 +95,8 @@ class EncounterRow extends StatelessWidget {
                       left: BorderSide(color: Colors.teal, width: 5))),
               child: Column(children: [
                 MatchHeader(match),
-                TeamWidget(match, match.teamHome, match.scoreHome, userDidWin, homeSelected),
-                TeamWidget(match, match.teamAway, match.scoreAway, userDidWin, awaySelected),
+                TeamWidget(match, match.teamHome, match.scoreHome, userDidWin, homeSelected, homeWin),
+                TeamWidget(match, match.teamAway, match.scoreAway, userDidWin, awaySelected, awayWin),
                 Container(height: 12,),
                 Result(match.isLive(), match.isStarted(),voted,userDidWin, votedTeamName),
                 Container(height: 12),

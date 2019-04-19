@@ -6,6 +6,7 @@ class Colors {
 
 
   static const Color appBarTitle = const Color(0xff000000);
+  static const Color appBarTitleGrey = const Color(0xffdddddd);
   static const Color appBarIconColor = const Color(0xFFFFFFFF);
   static const Color appBarDetailBackground = const Color(0x00FFFFFF);
   static const Color appBarGradientStart = const Color(0xFF000000);
@@ -52,6 +53,7 @@ class Colors {
   static const Color matchCardVoted = const Color(0xff000000);
   //static const Color matchListBackground = const Color(0xFF3E3963);
   static const Color matchPageBackground = const Color(0xaa000000);
+  static const Color matchTitleGrey = const Color(0xffaaaaaa);
   static const Color matchTitle = const Color(0xff000000);
   static const Color matchTitleOnDark = const Color(0xffffffff);
   static const Color matchTitleWin = const Color(0xFF00FF00);
@@ -109,6 +111,13 @@ static const TextStyle normalTextOnDark = const TextStyle(
 
   static const TextStyle matchTitle = const TextStyle(
     color: Colors.matchTitle,
+    fontFamily: 'CuteFont',
+    fontWeight: FontWeight.w600,
+    fontSize: 19.0
+  );
+
+   static const TextStyle matchTeamLoss = const TextStyle(
+    color: Colors.matchTitleGrey,
     fontFamily: 'CuteFont',
     fontWeight: FontWeight.w600,
     fontSize: 19.0

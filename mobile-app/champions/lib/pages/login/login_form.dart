@@ -81,9 +81,9 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                     state is LoginLoading
                         ? Container(
-                          width: 50,
-                          height: 50,
-                            padding: EdgeInsets.only(top: 50),
+                          width: 100,
+                          height: 100,
+                            padding: EdgeInsets.all( 50),
                             child: 
                             //FlareActor("assets/animations/Success Check.flr2d", fit: BoxFit.contain, animation: "Untitled",))
                              CircularProgressIndicator(

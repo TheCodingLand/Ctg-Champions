@@ -12,7 +12,9 @@ class MatchHeader extends StatelessWidget {
                   
                   direction: Axis.horizontal,
                   children: <Widget>[
-                    Spacer(flex: 2),
+                    Expanded(flex:2, child:
+                    match.drawPossible ? Icon(Icons.timeline): Icon(Icons.merge_type)),
+                    //Spacer(flex: 2),
                     Expanded(flex: 6, child: Container(padding: EdgeInsets.all(8), child:Text(formattedDate, style: TextStyle(fontWeight: FontWeight.w700 ),))),
                     match.isLive()? Expanded(flex:1, child: Icon(  Icons.remove_from_queue, color:Colors.red,)): Spacer(flex:1),
                     Spacer(flex:2)

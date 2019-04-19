@@ -35,6 +35,7 @@ class EncounterDetailBody extends StatelessWidget {
                 Row(children: <Widget>[
                 Expanded(child: Container(color: Colors.black, height: 1)),],),
                 Stack(children: <Widget>[
+                  
                   Flex(
                     direction: Axis.horizontal,
                     children: <Widget>[
@@ -62,7 +63,8 @@ class EncounterDetailBody extends StatelessWidget {
                 match.isStarted() ? 
                 MatchLiveView(match)
                 :
-                VoteWidget(match, user, vote)
+                VoteWidget(match, user, vote),
+                Container(child:Image.asset('assets/stadiums/wembley.jpg')),
               ])));
             }));
   }
