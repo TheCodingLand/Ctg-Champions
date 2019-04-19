@@ -47,7 +47,7 @@ class MatchLiveView extends StatelessWidget {
         ],
       ),
       Container(height: 15, color: Colors.white),
-      Container(height: 150, 
+      Container(height: 100, 
       child:list
       
       ),

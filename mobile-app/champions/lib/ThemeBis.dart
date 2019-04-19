@@ -6,6 +6,7 @@ class Colors {
 
 
   static const Color appBarTitle = const Color(0xff000000);
+  static const Color appBarTitleOnDark = const Color(0xffffffff);
   static const Color appBarTitleGrey = const Color(0xffdddddd);
   static const Color appBarIconColor = const Color(0xFFFFFFFF);
   static const Color appBarDetailBackground = const Color(0x00FFFFFF);
@@ -79,6 +80,13 @@ class TextStyles {
 
   static const TextStyle appBarTitle = const TextStyle(
     color: Colors.appBarTitle,
+    fontFamily: "CuteFont",
+    fontWeight: FontWeight.w600,
+    fontSize: 35.0
+  );
+  
+  static const TextStyle appBarTitleOnDark = const TextStyle(
+    color: Colors.appBarTitleOnDark,
     fontFamily: "CuteFont",
     fontWeight: FontWeight.w600,
     fontSize: 35.0

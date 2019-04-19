@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:champions/ThemeBis.dart';
+import 'package:champions/ThemeBis.dart' as ThemeBis;
 class  AppLogo extends StatelessWidget {
   
   @override
@@ -21,7 +21,7 @@ class  AppLogo extends StatelessWidget {
       
       Image(
         image: ExactAssetImage('assets/logo/ctg.png'), height: 100, width: 100,
-      ), Container(padding: const EdgeInsets.only(top:13), child: Text("CHAMPIONS", style: TextStyles.appBarTitle)),
+      ), Container(padding: const EdgeInsets.only(top:13), child: Text("CHAMPIONS", style: ThemeBis.TextStyles.appBarTitleOnDark)),
       
         ]
 )));

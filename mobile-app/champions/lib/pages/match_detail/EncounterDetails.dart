@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:champions/models/index.dart';
-
+import 'package:champions/ThemeBis.dart' as ThemeBis;
 import 'package:champions/inheritedUserWidget.dart';
 import 'components/TeamDetailAvatar.dart';
 import 'components/VoteWidget.dart';
@@ -64,6 +64,14 @@ class EncounterDetailBody extends StatelessWidget {
                 MatchLiveView(match)
                 :
                 VoteWidget(match, user, vote),
+                
+                Container(
+                  color: Colors.black,
+                  child: Center(
+                      child: Text(
+                    "Location : Wembley",
+                    style: ThemeBis.TextStyles.bigTextOnDark,
+                  ))),
                 Container(child:Image.asset('assets/stadiums/wembley.jpg')),
               ])));
             }));

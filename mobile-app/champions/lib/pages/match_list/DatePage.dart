@@ -84,8 +84,8 @@ class DaysViewState extends State<DaysPage> {
         itemBuilder: (context, position) => buildDayView(position),
         itemCount: lastPosition + 1,
         controller: new PageController(initialPage: todayPosition),
-        pageSnapping: true,
-        physics: BouncingScrollPhysics(),
+        //pageSnapping: true,
+//        physics: BouncingScrollPhysics(),
         onPageChanged: (position) {
           //print(todayPosition);
           DateTime selectedDate = getDateFromPosition(position);
