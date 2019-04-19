@@ -94,8 +94,9 @@ class Calendarro extends StatefulWidget {
   int getPositionOfDate(DateTime date) {
     int daysDifference =
         date.difference(DateUtils.toMidnight(startDate)).inDays;
-    int weekendsDifference = ((daysDifference + startDate.weekday) / 7).toInt();
-    var position = daysDifference - weekendsDifference * 2;
+    //int weekendsDifference = ((daysDifference + startDate.weekday) / 7).toInt();
+
+    var position = daysDifference;
     return position;
   }
 
@@ -176,7 +177,7 @@ class CalendarroState extends State<Calendarro> {
     );
 
     return Container(
-        height: widget.displayMode == DisplayMode.WEEKS ? 60.0 : 260.0,
+        height: widget.displayMode == DisplayMode.WEEKS ? 56.0 : 260.0,
         child: pageView);
   }
 

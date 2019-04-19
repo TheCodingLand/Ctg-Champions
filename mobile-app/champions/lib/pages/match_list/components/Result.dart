@@ -11,7 +11,7 @@ class Result extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    print(voted);
+    //print(voted);
     Expanded exp = Expanded(flex: 4, child: Container(color: Colors.black, child : Text("Vote!",textAlign: TextAlign.center, style: TextStyle(color:Colors.white, fontSize: 18) )));
     if (voted) {
       exp = Expanded(flex: 4, child: Container(color: Colors.white, child : Text("$teamname", textAlign: TextAlign.center,style: TextStyle(color:Colors.black, fontSize: 18) )));

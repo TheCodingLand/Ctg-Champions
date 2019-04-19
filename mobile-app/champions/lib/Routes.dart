@@ -8,7 +8,7 @@ class Routes {
 
   static var matchDetailHandler = Handler(
     handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-      print (params);
+      //print (params);
       return MatchDetailPage(params["id"][0]);
     });
 

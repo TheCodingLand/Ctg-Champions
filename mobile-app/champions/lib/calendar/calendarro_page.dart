@@ -20,9 +20,12 @@ class CalendarroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        
         child: Column(
             children: buildRows(context),
-            mainAxisSize: MainAxisSize.min
+            mainAxisSize: MainAxisSize.min,
+            
+             
         )
     );
   }

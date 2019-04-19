@@ -4,12 +4,7 @@
 import 'index.dart';
 
 
-
-
-
-
 const drawteam = Team(name: "Draw", flagImage: '');
-
 
 class Encounter {
   final String id;

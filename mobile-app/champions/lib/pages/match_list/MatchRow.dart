@@ -65,7 +65,7 @@ class EncounterRow extends StatelessWidget {
         }
     }
     }
-    print(vote.toString());
+    //print(vote.toString());
     
     
     DateTime today = DateTime.now();

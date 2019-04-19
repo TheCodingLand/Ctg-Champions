@@ -67,7 +67,7 @@ class MyInheritedMatchListWidgetState
   /// Helper method to add an Encounter
 
   void addEncounter() {
-    print(this.matchEventsCount);
+    //print(this.matchEventsCount);
     setState(() {
       matchEvents.add(addOne('${matchEventsCount + 1}'));
     });

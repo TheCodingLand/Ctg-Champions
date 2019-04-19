@@ -37,7 +37,7 @@ class _HomePageBodyState extends State<HomePageBody> {
   }
 
   void setDate(d) {
-    print(d.toString());
+    //print(d.toString());
     setState(() {
       date = d;
       
@@ -53,17 +53,19 @@ class _HomePageBodyState extends State<HomePageBody> {
       children: <Widget>[
         
         CustomAppBar("Calendar"),
-        Calendarro(
-                startDate: DateUtils.getFirstDayOfCurrentMonth(),
-                endDate: DateUtils.getLastDayOfCurrentMonth(),
-                displayMode: DisplayMode.WEEKS,
-                selectedDate: date,
+        // Calendarro(
+        //         startDate: DateUtils.getFirstDayOfCurrentMonth(),
+        //         endDate: DateUtils.getLastDayOfCurrentMonth(),
+        //         displayMode: DisplayMode.WEEKS,
+        //         selectedDate: date,
                 
-                onTap: (date) => setDate(date),
-        ),
-        MatchList(date,setDate),
+        //         onTap: (date) => setDate(date),
+        // ),
+        //MatchList(date,setDate),
         
-        //DaysPage()
+        DaysPage(selectedDate: date,
+                
+                onTap: (date) => setDate(date),)
        
     
         

@@ -16,13 +16,13 @@ class MatchList extends StatelessWidget {
     final MyInheritedMatchListWidgetState matches = MyInheritedMatchListWidget.of(context);
     
     final MyInheritedUserWidgetState userstate = MyInheritedUserWidget.of(context);
-    print (date.toString());
+    print ("Matchlist: " + date.toString());
     
     List matchesFiltered = matches.matchEvents.where(
       (i)=>i.date.day == date.day 
       && i.date.month == date.month && 
       i.date.year == date.year).toList();
-    print(matchesFiltered.toString());
+    //print(matchesFiltered.toString());
     //final List<Encounter> matches = State.of(MyInheritedMatchListWidget.of(context));
     return Expanded ( child: 
       //onSwipeLeft: () =>setDate(date.subtract(Duration(days: 1))),
