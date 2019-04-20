@@ -13,6 +13,7 @@ Encounter addOne(String index) {
     teamHome: MatchesDao.england,
     scoreAway: 0,
     scoreHome: 1,
+    drawPossible: false
   );
   return m;
 }

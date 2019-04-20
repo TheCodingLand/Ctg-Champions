@@ -18,7 +18,7 @@ class UserRepository {
   Future <bool> verify({@required String token})
   async {
     await Future.delayed(Duration(seconds: 1));
-    if (token=='tokens') return true;
+    if (token=='token') return true;
     return false;
   }
   

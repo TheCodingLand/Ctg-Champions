@@ -137,7 +137,9 @@ class MatchesDao {
         teamHome: england,
         scoreAway: 0,
         scoreHome: 0,
-        ended: false
+        ended: false,
+        
+        drawPossible: true
     );
     
       print('adding an new match : ${m.location}');
