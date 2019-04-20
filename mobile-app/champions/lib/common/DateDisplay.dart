@@ -12,7 +12,7 @@ String dateDisplay(date) {
     formattedDate = 'Today at $time';
   } else {
     String time= DateFormat('kk:mm').format(date);
-    formattedDate = '${weekdays[date.weekday]}, ${date.day}th, ${months[date.month]} at $time';
+    formattedDate = '${weekdays[date.weekday-1]}, ${date.day}th, ${months[date.month-1]} at $time';
   }
 
   return formattedDate;
