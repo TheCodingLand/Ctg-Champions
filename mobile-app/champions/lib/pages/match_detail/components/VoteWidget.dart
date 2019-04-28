@@ -68,7 +68,7 @@ void doVote(user, match, team) {
                   // border: Border(
                   //     top: BorderSide(color: Colors.grey, width: 1),
                   //     left: hasvoted ? BorderSide(color: Colors.teal, width: 600):BorderSide(color: Colors.teal, width: 1) )),
-        child: Center(child: hasvoted? Text('Vote : ${uservote.team.name}'):Text('who will win?'))
+        child: Center(child: hasvoted? Text('Vote : ${uservote.team.name}'):Container())
                       ),
                      
                      
