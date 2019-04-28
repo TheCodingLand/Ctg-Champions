@@ -95,8 +95,8 @@ class EncounterRow extends StatelessWidget {
                       left: BorderSide(color: Colors.teal, width: 10))),
               child: Column(children: [
                 MatchHeader(match),
-                TeamWidget(match, match.teamHome, match.scoreHome, userDidWin, homeSelected, homeWin),
-                TeamWidget(match, match.teamAway, match.scoreAway, userDidWin, awaySelected, awayWin),
+                TeamWidget(match, match.teamHome, match.scoreHome, userDidWin, homeSelected, homeWin, drawSelected),
+                TeamWidget(match, match.teamAway, match.scoreAway, userDidWin, awaySelected, awayWin, drawSelected),
                 Container(height: 12,),
                 Result(match.isLive(), match.isStarted(),voted,userDidWin, votedTeamName),
                 Container(height: 12),

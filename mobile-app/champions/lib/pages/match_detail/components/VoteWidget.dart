@@ -35,6 +35,7 @@ void doVote(user, match, team) {
     Vote uservote = widget.user.getUserVote(widget.match);
     Team votedTeam;
     bool hasvoted = false;
+    print(uservote.team);
     if (uservote.team != null)  { votedTeam = uservote.team; hasvoted=true;} else { hasvoted=false; }  
     return Column(children: [
       Container(
@@ -67,7 +68,7 @@ void doVote(user, match, team) {
                   // border: Border(
                   //     top: BorderSide(color: Colors.grey, width: 1),
                   //     left: hasvoted ? BorderSide(color: Colors.teal, width: 600):BorderSide(color: Colors.teal, width: 1) )),
-        child: Center(child:Text('Vote : ${uservote.team.name}'))
+        child: Center(child: hasvoted? Text('Vote : ${uservote.team.name}'):Text('who will win?'))
                       ),
                      
                      

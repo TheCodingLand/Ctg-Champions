@@ -4,6 +4,9 @@ import 'package:champions/ThemeBis.dart' as Theme;
 import 'package:champions/inheritedMatchList.dart';
 import 'package:fluro/fluro.dart';
 import 'package:champions/Routes.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+
 class CustomAppBar extends StatelessWidget {
   
   final String title;
@@ -47,10 +50,11 @@ class CustomAppBar extends StatelessWidget {
         
 
         InkWell(onTap: () { _navigateTo(context); },
-          child: Icon(Icons.account_circle)),
+          child: Icon(FontAwesomeIcons.trophy)),
         
         
-        Icon(Icons.settings)],
+        //Icon(Icons.settings)
+        ],
         )
       ])]),
      /*  decoration: BoxDecoration(

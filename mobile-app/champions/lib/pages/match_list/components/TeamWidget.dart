@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:champions/models/index.dart';
 import 'package:champions/ThemeBis.dart' as ThemeBis;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TeamWidget extends StatelessWidget {
   final Encounter match;
@@ -10,7 +11,8 @@ class TeamWidget extends StatelessWidget {
   final bool userDidWin;
   final bool selected;
   final bool win;
-  TeamWidget(this.match, this.team, this.score, this.userDidWin, this.selected, this.win);
+  final bool drawSelected;
+  TeamWidget(this.match, this.team, this.score, this.userDidWin, this.selected, this.win, this.drawSelected);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class TeamWidget extends StatelessWidget {
             ? Expanded(
                 flex: 2,
                 child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: EdgeInsets.fromLTRB(0,8,0,10),
                     child: match.isStarted() ? 
                     userDidWin
                         ? Text(
@@ -45,10 +47,11 @@ class TeamWidget extends StatelessWidget {
                             '+0 pts',
                             style: TextStyle(color: Colors.red),
                         )
-                        : Text("selected", style: TextStyle(color: Colors.purple) ,),
+                        : Container(height:16, child: Icon(FontAwesomeIcons.checkCircle, size:20, color: Colors.green)) ,
                           
                           ))
-            : Spacer(flex: 2),
+            : drawSelected ? Container(height:16, child: Icon(FontAwesomeIcons.equals, size:20, color: Colors.orange)) : Spacer(flex:2),
+            Spacer(flex: 2),
         Expanded(
             flex: 1,
             child: Container(
