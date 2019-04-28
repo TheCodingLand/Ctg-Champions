@@ -92,7 +92,7 @@ class EncounterRow extends StatelessWidget {
                   color: passed ? Colors.grey.shade200 : Colors.white,
                   border: Border(
                       top: BorderSide(color: Colors.grey, width: 1),
-                      left: BorderSide(color: Colors.teal, width: 5))),
+                      left: BorderSide(color: Colors.teal, width: 10))),
               child: Column(children: [
                 MatchHeader(match),
                 TeamWidget(match, match.teamHome, match.scoreHome, userDidWin, homeSelected, homeWin),

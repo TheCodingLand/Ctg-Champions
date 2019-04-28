@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:champions/ThemeBis.dart' as Theme;
 //import 'package:champions/models/matches.dart';
 import 'package:champions/inheritedMatchList.dart';
-
+import 'package:fluro/fluro.dart';
+import 'package:champions/Routes.dart';
 class CustomAppBar extends StatelessWidget {
   
   final String title;
@@ -17,6 +18,12 @@ class CustomAppBar extends StatelessWidget {
       .of(context)
       .padding
       .top;
+
+
+    _navigateTo(context) {
+    Routes.navigateTo(context, '/rankings',
+        transition: TransitionType.fadeIn);
+    }  
 
     return Container(
       padding: EdgeInsets.only(top: statusbarHeight),
@@ -39,7 +46,7 @@ class CustomAppBar extends StatelessWidget {
           child: Icon(Icons.plus_one)),
         
 
-        InkWell(onTap: () {  },
+        InkWell(onTap: () { _navigateTo(context); },
           child: Icon(Icons.account_circle)),
         
         
