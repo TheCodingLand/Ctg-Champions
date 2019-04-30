@@ -57,8 +57,9 @@ void doVote(user, match, team) {
         ],
       ),
       Column(children: [
-      hasvoted ? AnimatedContainer(
+      AnimatedContainer(
         duration: Duration(milliseconds: 500),
+        
         width: hasvoted ? 600: 0,
         height: hasvoted ? 63: 0,
         
@@ -68,11 +69,11 @@ void doVote(user, match, team) {
                   //     top: BorderSide(color: Colors.grey, width: 1),
                   //     left: hasvoted ? BorderSide(color: Colors.teal, width: 600):BorderSide(color: Colors.teal, width: 1) )),
         child: Center(child: hasvoted? Text('Vote : ${uservote.team.name}', style: ThemeBis.TextStyles.appBarTitleOnDark,):Container())
-                      ) : 
+                      ), 
                      
                      
                      
-              Flex(
+          hasvoted?Container():    Flex(
           direction: Axis.horizontal,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
