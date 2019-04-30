@@ -9,7 +9,8 @@ class MatchLiveView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Event e = Event(gameminute:15,team:match.teamHome,text: 'Rooney Scored');
-     ListView list = ListView.builder(
+    
+    ListView list = ListView.builder(
       itemBuilder: (context, position) {
         return Card(
           child: Text('${match.events[position].gameminute.toString()} : ${match.events[position].text} for ${match.events[position].team.name} ')

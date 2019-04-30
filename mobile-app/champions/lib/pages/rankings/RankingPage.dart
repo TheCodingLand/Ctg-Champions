@@ -12,12 +12,12 @@ class RankingPage extends StatelessWidget {
         children: <Widget>[
           Container(height:250, width: 250, child: Image.asset('assets/img.png')),
           // TODO Add large cup icon with top player name. 
-          Text('1 - John: 15 pts', style: ThemeBis.TextStyles.appBarTitle),
-          Text('2 - Doe : 13 pts', style:  ThemeBis.TextStyles.appBarTitle),
-          Text('3 - test', style:  ThemeBis.TextStyles.appBarTitle),
-          Text('4 - test', style:  ThemeBis.TextStyles.appBarTitle),
-          Text('5 - test', style:  ThemeBis.TextStyles.appBarTitle),
-        
+            Text('1 - John: 15 pts', style: ThemeBis.TextStyles.appBarTitle),
+            Text('2 - Doe : 13 pts', style:  ThemeBis.TextStyles.appBarTitle),
+            Text('3 - test', style:  ThemeBis.TextStyles.appBarTitle),
+            Text('4 - test', style:  ThemeBis.TextStyles.appBarTitle),
+            Text('5 - test', style:  ThemeBis.TextStyles.appBarTitle),
+          
         ],
       ),
       

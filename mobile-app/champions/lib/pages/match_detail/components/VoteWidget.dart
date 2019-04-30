@@ -56,20 +56,19 @@ void doVote(user, match, team) {
                   ))))
         ],
       ),
-      Stack(children: [
-      AnimatedContainer(
+      Column(children: [
+      hasvoted ? AnimatedContainer(
         duration: Duration(milliseconds: 500),
         width: hasvoted ? 600: 0,
+        height: hasvoted ? 63: 0,
         
         decoration: BoxDecoration(
-
-                  
                   color: hasvoted ? Colors.teal : Colors.transparent,),
                   // border: Border(
                   //     top: BorderSide(color: Colors.grey, width: 1),
                   //     left: hasvoted ? BorderSide(color: Colors.teal, width: 600):BorderSide(color: Colors.teal, width: 1) )),
-        child: Center(child: hasvoted? Text('Vote : ${uservote.team.name}'):Container())
-                      ),
+        child: Center(child: hasvoted? Text('Vote : ${uservote.team.name}', style: ThemeBis.TextStyles.appBarTitleOnDark,):Container())
+                      ) : 
                      
                      
                      
