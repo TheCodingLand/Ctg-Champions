@@ -55,7 +55,7 @@ class DaysViewState extends State<DaysPage> {
   @override
   Widget build(BuildContext context) {
     DateTime startDate = DateUtils.getFirstDayOfCurrentMonth();
-    DateTime endDate = DateUtils.getLastDayOfCurrentMonth();
+    DateTime endDate = DateUtils.getLastDayOfNextMonth();
 
     //f (startDate.weekday > 5) {
     //  startDate = DateUtils.addDaysToDate(startDate, 8 - startDate.weekday);

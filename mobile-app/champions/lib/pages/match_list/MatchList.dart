@@ -3,7 +3,7 @@ import 'MatchRow.dart';
 import 'package:champions/ThemeBis.dart' as Theme;
 import 'package:champions/inheritedUserWidget.dart';
 import 'package:champions/inheritedMatchList.dart';
-import 'package:swipedetector/swipedetector.dart';
+
 class MatchList extends StatelessWidget {
   final DateTime date;
   final Function setDate;

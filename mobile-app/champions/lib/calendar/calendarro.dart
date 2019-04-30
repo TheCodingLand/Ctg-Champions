@@ -26,7 +26,7 @@ class Calendarro extends StatefulWidget {
   Function updateCalendar;
   DateTime selectedDate;
   List<DateTime> selectedDates;
-
+  List<DateTime> matchDays;
   int startDayOffset;
   CalendarroState state;
 
@@ -38,6 +38,7 @@ class Calendarro extends StatefulWidget {
       this.dayTileBuilder,
       this.selectedDate,
       this.selectedDates,
+      this.matchDays,
       this.selectionMode = SelectionMode.SINGLE,
       this.onTap,
       this.weekdayLabelsRow,
@@ -249,6 +250,24 @@ class CalendarroState extends State<Calendarro> {
     } else {
       return DateUtils.isSameDay(selectedDate, date);
     }
+  }
+
+  bool isMatchDay(DateTime date) {
+    bool result=false;
+    for (DateTime d in widget.matchDays) {
+      if (DateUtils.isSameDay(d, date)) {
+        result=true;
+      
+    } 
+      
+      }
+    
+    
+     
+    
+    
+    return result;
+    
   }
 
   void toggleDateSelection(DateTime date) {
