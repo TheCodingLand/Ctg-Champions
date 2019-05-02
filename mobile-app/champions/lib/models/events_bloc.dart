@@ -20,7 +20,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
 Stream<EventsState> _mapAddEventToState(AddEvent event) async* {
     //if (currentState is EventsLoaded) {
       final List<Event> updatedEvents =
-          List.from((currentState as EventsState).events)..add(event.event);
+          List.from((currentState).events)..add(event.event);
       //yield TodosLoaded(updatedTodos);
       //_saveTodos(updatedTodos);
     }

@@ -27,7 +27,7 @@ class _VoteWidgetState extends State<VoteWidget> {
     Vote uservote = widget.user.getUserVote(widget.match);
     Team votedTeam;
     bool hasvoted = false;
-    print(uservote.team);
+    //print(uservote.team);
     if (uservote.team != null) {
       votedTeam = uservote.team;
       hasvoted = true;
@@ -52,23 +52,25 @@ class _VoteWidgetState extends State<VoteWidget> {
         ],
       ),
       Column(children: [
-        AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            width: hasvoted ? 600 : 0,
+        Container(
             height: hasvoted ? 63 : 0,
-            decoration: BoxDecoration(
-              color: hasvoted ? Colors.teal : Colors.transparent,
-            ),
-            // border: Border(
-            //     top: BorderSide(color: Colors.grey, width: 1),
-            //     left: hasvoted ? BorderSide(color: Colors.teal, width: 600):BorderSide(color: Colors.teal, width: 1) )),
-            child: Center(
-                child: hasvoted
-                    ? Text(
-                        'Vote : ${uservote.team.name}',
-                        style: ThemeBis.TextStyles.appBarTitleOnDark,
-                      )
-                    : Container())),
+            child: AnimatedContainer(
+                duration: Duration(milliseconds: 500),
+                width: hasvoted ? 600 : 0,
+                height: 63,
+                decoration: BoxDecoration(
+                  color: hasvoted ? Colors.teal : Colors.transparent,
+                ),
+                // border: Border(
+                //     top: BorderSide(color: Colors.grey, width: 1),
+                //     left: hasvoted ? BorderSide(color: Colors.teal, width: 600):BorderSide(color: Colors.teal, width: 1) )),
+                child: Center(
+                    child: hasvoted
+                        ? Text(
+                            'Vote : ${uservote.team.name}',
+                            style: ThemeBis.TextStyles.appBarTitleOnDark,
+                          )
+                        : Container()))),
         hasvoted
             ? Container()
             : Flex(

@@ -1,8 +1,7 @@
-import 'dart:async';
 
 import 'package:champions/calendar/date_utils.dart';
 import 'package:flutter/material.dart';
-import 'MatchList_test.dart';
+import 'MatchList.dart';
 import 'package:champions/calendar/calendarro.dart';
 import 'package:event_bus/event_bus.dart';
 
@@ -17,13 +16,14 @@ class DayClickedEvent {
   DayClickedEvent({this.date, this.pageIndex});
 }
 
-class ReservationsUpdatedEvent {}
+
 
 
 class DaysPage extends StatefulWidget {
   final DateTime selectedDate;
   final Function onTap;
-  const DaysPage({ this.selectedDate, this.onTap}): super();
+  final List<DateTime> matchDays;
+  const DaysPage({ this.matchDays, this.selectedDate, this.onTap}): super();
   
   @override
   DaysViewState createState() {
@@ -36,31 +36,11 @@ class DaysViewState extends State<DaysPage> {
   
   Calendarro calendarro;
   PageView pageView;
-  //StreamSubscription dayClickedEventSubscription;
-
- /*  @override
-  void initState() {
-    dayClickedEventSubscription =
-        eventBus.on<DayClickedEvent>().listen((event) {
-        ////print (event.date.toString());
-      setState(() {
-          
-        var page = calendarro.getPositionOfDate(event.date);
-        pageView.controller.jumpToPage(page);
-      });
-      ////print(event.date);
-    });
-  } */
-
   @override
   Widget build(BuildContext context) {
     DateTime startDate = DateUtils.getFirstDayOfCurrentMonth();
     DateTime endDate = DateUtils.getLastDayOfNextMonth();
-
-    //f (startDate.weekday > 5) {
-    //  startDate = DateUtils.addDaysToDate(startDate, 8 - startDate.weekday);
-//      startDate = startDate.add(Duration(days: 8 - startDate.weekday));
-    //}
+    
     var today = DateTime.now();
 
     calendarro = Calendarro(
@@ -71,7 +51,7 @@ class DaysViewState extends State<DaysPage> {
       displayMode: DisplayMode.WEEKS,
       onTap: (date)=>handleTap(date),
       //dayTileBuilder: DaysViewTileBuilder(),
-      
+      matchDays: widget.matchDays,
       selectedDate: today,
     );
 
@@ -105,17 +85,15 @@ class DaysViewState extends State<DaysPage> {
   }
 
   DateTime getDateFromPosition(int position) {
-    print ("Position : " + position.toString());
+    //print ("Position : " + position.toString());
     //print (calendarro.startDate.toIso8601String());
     var nextDay = (calendarro.startDate.weekday - 1 + position);
-    print ('NextDay :' + nextDay.toString());
+    //print ('NextDay :' + nextDay.toString());
     var nextDateWeekday = nextDay % 7;
     var nextDateWeek = (nextDay / 7).floor();
 
     var weekdayDifference = nextDateWeekday + 1 - calendarro.startDate.weekday;
     var selectedDate = DateUtils.addDaysToDate(calendarro.startDate, nextDateWeek * 7+ weekdayDifference);
-    //var selectedDate = DateUtils.addDaysToDate(calendarro.startDate, nextDay);
-    //print("Selected Date :" + selectedDate.toString());
     return selectedDate;
   }
 
@@ -126,46 +104,17 @@ class DaysViewState extends State<DaysPage> {
     return MatchList( currentSelectedDate, ()=>{});
   }
 
-  /* @override
-  void dispose() {
-    dayClickedEventSubscription.cancel();
-    super.dispose();
-  }
- */
   void handleTap(date) {
     //print ("setting date" + date.toString());
      setState(() {
         ////print ("calendar" + calendarro.getPageForDate(date).toString())  ;
 
         var page = calendarro.getPositionOfDate(date);
-        print(page);
+        //print(page);
 
         pageView.controller.jumpToPage(page);
         
       });
   }
-  /* void handleTap() {
-    widget.onTap(date => () )
-    widget.selectedDate;
-    setState(() {
-          
-        var page = calendarro.getPositionOfDate(date);
-        pageView.controller.jumpToPage(page);
-      }); */
-    //calendarro.setSelectedDate(date);
-    //calendarro.setCurrentDate(date);
-    
-    //eventBus.fire(DayClickedEvent());
+  
 }
-
-
-// class DaysViewTileBuilder extends DayTileBuilder {
-//   DateTime tileDate;
-//   CalendarroState calendarro;
-
-//   @override
-//   Widget build(BuildContext context, DateTime tileDate, DateTimeCallback onTap) {
-//     calendarro = Calendarro.of(context);
-//     return new DateTileView(date: tileDate, calendarro: calendarro);
-//   }
-// }

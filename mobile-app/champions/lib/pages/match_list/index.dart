@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-//import 'package:champions/ui/home/GradientAppBar.dart';
-import 'package:champions/pages/match_list/MatchList.dart';
 import 'package:champions/common/CustomAppBar.dart';
-import 'package:champions/calendar/calendarro.dart';
-import 'package:champions/calendar/date_utils.dart';
-//import 'package:date_utils/date_utils.dart' as DateUtils;
-//import 'package:date_utils/date_utils';
 import 'DatePage.dart';
+import 'package:champions/inheritedMatchList.dart';
+
 class HomePage extends StatelessWidget {
   void _add() => {};
   void _remove() => {};
@@ -27,7 +23,7 @@ class HomePageBody extends StatefulWidget {
 }
 
 class _HomePageBodyState extends State<HomePageBody> {
-  
+    
   DateTime today= DateTime.now();
   DateTime date; 
   @override
@@ -47,23 +43,17 @@ class _HomePageBodyState extends State<HomePageBody> {
   DateTime getCurrentDate() { return this.date; }
   @override
   Widget build(BuildContext context) {
-
+    final MyInheritedMatchListWidgetState matches = MyInheritedMatchListWidget.of(context);
+    List <DateTime> matchDays= <DateTime>[];
+    for (var m in matches.matchEvents) {matchDays.add(m.date);}
+    //print (matchDays);
     return 
     Column(
       children: <Widget>[
         
         CustomAppBar("Calendar"),
-        // Calendarro(
-        //         startDate: DateUtils.getFirstDayOfCurrentMonth(),
-        //         endDate: DateUtils.getLastDayOfCurrentMonth(),
-        //         displayMode: DisplayMode.WEEKS,
-        //         selectedDate: date,
-                
-        //         onTap: (date) => setDate(date),
-        // ),
-        //MatchList(date,setDate),
         
-        DaysPage(selectedDate: date,
+        DaysPage(matchDays: matchDays ,selectedDate: date,
                 
                 onTap: (date) => setDate(date),)
        

@@ -15,6 +15,6 @@ class AddEvent extends EventsEvent {
   AddEvent(this.event) : super([event]);
 
   @override
-  String toString() => 'AddTodo { todo: ${event.text} }';
+  String toString() => 'AddEvent { event: ${event.text} }';
 }
 

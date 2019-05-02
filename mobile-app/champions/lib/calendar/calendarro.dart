@@ -63,6 +63,9 @@ class Calendarro extends StatefulWidget {
     if (weekdayLabelsRow == null) {
       weekdayLabelsRow = CalendarroWeekdayLabelsView();
     }
+    if (matchDays == null) {
+      matchDays=List();
+    }
 
     if (selectedDates == null) {
       selectedDates = List();
@@ -234,7 +237,7 @@ class CalendarroState extends State<Calendarro> {
       DateTime nextMonthFirstDate = DateTime(
           widget.startDate.year, widget.startDate.month + position + 1, 1);
       pageEndDate = DateUtils.addDaysToDate(nextMonthFirstDate, -1);
-      ;
+      
     }
 
     return CalendarroPage(
@@ -255,19 +258,12 @@ class CalendarroState extends State<Calendarro> {
   bool isMatchDay(DateTime date) {
     bool result=false;
     for (DateTime d in widget.matchDays) {
-      if (DateUtils.isSameDay(d, date)) {
+        if (DateUtils.isSameDay(d, date)) {
         result=true;
       
-    } 
-      
       }
-    
-    
-     
-    
-    
-    return result;
-    
+      }
+      return result;
   }
 
   void toggleDateSelection(DateTime date) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:champions/models/index.dart';
 import 'package:champions/ThemeBis.dart' as ThemeBis;
-import 'package:champions/inheritedUserWidget.dart';
+
 import 'components/TeamDetailAvatar.dart';
 import 'components/VoteWidget.dart';
 import 'components/MatchHeaderDetail.dart';
@@ -16,7 +16,7 @@ class EncounterDetailBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Vote vote = user.getUserVote(match);
-    bool started = match.isStarted();
+    
     //bool result = user.getUserResult();
     
 

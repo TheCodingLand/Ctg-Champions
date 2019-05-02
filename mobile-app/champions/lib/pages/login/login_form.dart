@@ -7,7 +7,7 @@ import 'package:champions/ThemeBis.dart' as Theme;
 import 'SignInButton.dart';
 
 import 'package:champions/common/InputFields.dart';
-import 'package:flare_flutter/flare_actor.dart';
+
 class LoginForm extends StatefulWidget {
   final LoginBloc loginBloc;
   final AuthenticationBloc authenticationBloc;

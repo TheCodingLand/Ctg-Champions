@@ -14,6 +14,7 @@ Encounter addOne(String index) {
     scoreAway: 0,
     scoreHome: 1,
     drawPossible: false
+    //TODO: EVENTS to be a list property of Encounter and update here
   );
   return m;
 }

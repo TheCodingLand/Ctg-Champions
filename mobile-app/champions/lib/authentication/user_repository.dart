@@ -39,7 +39,7 @@ class UserRepository {
   Future<bool> hasToken() async {
     String token = await storage.read(key: 'token');
     /// read from keystore/keychain
-    print (token);
+    //print (token);
     await Future.delayed(Duration(seconds: 1));
     return await verify(token:token);
     

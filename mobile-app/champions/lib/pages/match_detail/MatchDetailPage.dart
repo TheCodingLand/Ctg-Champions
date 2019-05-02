@@ -12,8 +12,6 @@ class MatchDetailPage extends StatelessWidget {
 
   MatchDetailPage(String id) : match = MatchesDao.getEncounterById(id);
 
-
-
   @override
   Widget build(BuildContext context) {
     final MyInheritedUserWidgetState userstate = MyInheritedUserWidget.of(context);
