@@ -4,50 +4,53 @@ import 'date_utils.dart';
 import 'package:flutter/material.dart';
 
 class CalendarroPage extends StatelessWidget {
-  static final MAX_ROWS_COUNT = 6;
+  static final maxRowsCount = 6;
 
-  DateTime pageStartDate;
-  DateTime pageEndDate;
-  Widget weekdayLabelsRow;
+  final DateTime pageStartDate;
+  final DateTime pageEndDate;
+  final Widget weekdayLabelsRow;
 
-  int startDayOffset;
+  //int startDayOffset;
+  
 
   CalendarroPage(
       {this.pageStartDate, this.pageEndDate, this.weekdayLabelsRow}) {
-    startDayOffset = pageStartDate.weekday - DateTime.monday;
+    //startDayOffset = pageStartDate.weekday - DateTime.monday;
   }
 
   @override
   Widget build(BuildContext context) {
+    
+    //startDayOffset = pageStartDate.weekday - DateTime.monday;
     return Container(
         child: Column(
       children: buildRows(context),
       mainAxisSize: MainAxisSize.min,
     ));
   }
-
+  int calculateOffset() { return pageStartDate.weekday - DateTime.monday; }
   List<Widget> buildRows(BuildContext context) {
     List<Widget> rows = [];
     rows.add(weekdayLabelsRow);
 
     DateTime rowLastDayDate =
-        DateUtils.addDaysToDate(pageStartDate, 6 - startDayOffset);
+        DateUtils.addDaysToDate(pageStartDate, 6 - calculateOffset());
 //    DateTime rowLastDayDate = pageStartDate.add(Duration(days: 6 - startDayOffset));
 
     if (pageEndDate.isAfter(rowLastDayDate)) {
       rows.add(Row(
           children: buildCalendarRow(context, pageStartDate, rowLastDayDate)));
 
-      for (var i = 1; i < MAX_ROWS_COUNT; i++) {
+      for (var i = 1; i < maxRowsCount; i++) {
         DateTime nextRowFirstDayDate =
-            DateUtils.addDaysToDate(pageStartDate, 7 * i - startDayOffset);
+            DateUtils.addDaysToDate(pageStartDate, 7 * i - calculateOffset());
 
         if (nextRowFirstDayDate.isAfter(pageEndDate)) {
           break;
         }
 
         DateTime nextRowLastDayDate =
-            DateUtils.addDaysToDate(pageStartDate, 7 * i - startDayOffset + 6);
+            DateUtils.addDaysToDate(pageStartDate, 7 * i - calculateOffset() + 6);
 
         if (nextRowLastDayDate.isAfter(pageEndDate)) {
           nextRowLastDayDate = pageEndDate;

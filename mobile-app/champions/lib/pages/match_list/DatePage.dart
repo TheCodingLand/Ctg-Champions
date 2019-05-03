@@ -38,11 +38,12 @@ class DaysViewState extends State<DaysPage> {
   PageView pageView;
   @override
   Widget build(BuildContext context) {
-    DateTime startDate = DateUtils.getFirstDayOfCurrentMonth();
-    DateTime endDate = DateUtils.getLastDayOfNextMonth();
+    //DateTime startDate = DateUtils.getFirstDayOfCurrentMonth();
+    
     
     var today = DateTime.now();
-
+    DateTime startDate = DateUtils.addDaysToDate(today,-10);
+    DateTime endDate = DateUtils.addDaysToDate(today,60);
     calendarro = Calendarro(
       key: calendarroStateKey,
       startDate: startDate,
