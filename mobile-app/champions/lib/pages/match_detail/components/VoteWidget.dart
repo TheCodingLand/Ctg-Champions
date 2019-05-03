@@ -25,11 +25,11 @@ class _VoteWidgetState extends State<VoteWidget> {
   @override
   Widget build(BuildContext context) {
     Vote uservote = widget.user.getUserVote(widget.match);
-    Team votedTeam;
+    //Team votedTeam;
     bool hasvoted = false;
     //print(uservote.team);
     if (uservote.team != null) {
-      votedTeam = uservote.team;
+      //votedTeam = uservote.team;
       hasvoted = true;
     } else {
       hasvoted = false;

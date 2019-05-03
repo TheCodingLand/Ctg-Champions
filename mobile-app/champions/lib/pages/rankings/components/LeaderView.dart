@@ -12,7 +12,7 @@ class LeaderView extends StatelessWidget {
 }
 
 
-class nameClipper extends CustomClipper<Path> {
+class NameClipper extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) {
