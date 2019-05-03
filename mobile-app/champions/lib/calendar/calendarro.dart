@@ -98,7 +98,7 @@ class Calendarro extends StatefulWidget {
   int getPositionOfDate(DateTime date) {
     int daysDifference =
         date.difference(DateUtils.toMidnight(startDate)).inDays;
-    //int weekendsDifference = ((daysDifference + startDate.weekday) / 7).toInt();
+   
 
     var position = daysDifference;
     return position;
