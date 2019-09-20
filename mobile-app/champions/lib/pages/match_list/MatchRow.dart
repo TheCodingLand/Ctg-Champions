@@ -87,7 +87,7 @@ class EncounterRow extends StatelessWidget {
             onTap: () => _navigateTo(context, match.id),
             child:
           Container(
-              height: 150,
+              height: 170,
               decoration: BoxDecoration(
                   color: passed ? Colors.grey.shade200 : Colors.white,
                   border: Border(

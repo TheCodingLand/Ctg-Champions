@@ -33,15 +33,28 @@ class MatchList extends StatelessWidget {
           Container(
             color: Colors.black45,
             child: matchesFiltered.length < 1 ? Center(child:Text("No Matches", style: ThemeBis.TextStyles.appBarTitle,)) :
+            matchesFiltered.length < 4 ?
           ListView.builder(
           scrollDirection: Axis.vertical,
           padding: EdgeInsets.all(0),
-          itemExtent: 150.0,
+         itemExtent: 170.0,
           itemCount: matchesFiltered.length,
           //shrinkWrap: true,
           itemBuilder: (_, index) => EncounterRow(matchesFiltered[index], userstate.user),
         
     
-    ),))]);
+    )
+    :  
+          ListView.builder(
+          scrollDirection: Axis.vertical,
+          padding: EdgeInsets.all(0),
+          itemExtent: 170.0,
+          itemCount: matchesFiltered.length,
+          shrinkWrap: true,
+          itemBuilder: (_, index) => EncounterRow(matchesFiltered[index], userstate.user),
+        
+    
+    ) 
+    ,))]);
     }
 }
