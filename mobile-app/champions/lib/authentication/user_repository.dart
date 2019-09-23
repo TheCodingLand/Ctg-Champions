@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 final storage = FlutterSecureStorage();
-
+final List users = [{'test' : 'test', 'jlebourg': '1'}];
 
 class UserRepository {
   Future<String> authenticate({

@@ -3,6 +3,7 @@ import 'package:champions/models/index.dart';
 
 import 'package:champions/models/matches.dart';
 DateTime date = DateTime.now();
+
 Encounter addOne(String index) {
   Encounter m = Encounter(
     id: index,
@@ -72,6 +73,7 @@ class MyInheritedMatchListWidgetState
     //print(this.matchEventsCount);
     setState(() {
       matchEvents.add(addOne('${matchEventsCount + 1}'));
+      //we need to pass the index of the event so the list has a reference to the correct match id for the details view
     });
   }
 

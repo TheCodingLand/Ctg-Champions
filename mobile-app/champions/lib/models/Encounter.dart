@@ -22,7 +22,18 @@ class Encounter {
   
   List<Event> events = [];
 
-  
+  Team winner() { 
+    if (this.scoreAway> this.scoreHome){
+    return this.teamAway;
+    
+    }
+    else if (this.scoreAway < this.scoreHome){
+      return this.teamHome;
+    }
+    else {
+      return this.draw;
+    }
+  }
   bool isLive() {
     if (isStarted() && this.ended==false) {
     return true;

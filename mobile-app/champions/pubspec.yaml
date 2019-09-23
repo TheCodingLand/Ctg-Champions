@@ -19,6 +19,7 @@ dependencies:
   flutter:
     sdk: flutter
   flare_flutter: ^1.0.0
+  provider: 
   date_utils: ^0.1.0
   swipedetector: ^1.2.0
   flutter_bloc: ^0.10.0
